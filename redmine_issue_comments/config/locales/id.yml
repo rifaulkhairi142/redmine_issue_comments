@@ -1,0 +1,19 @@
+id:
+  project_module_issue_comments: Komentar issue
+  permission_view_issue_comments: Lihat komentar issue
+  permission_add_issue_comments: Tambah komentar issue
+  permission_edit_own_issue_comments: Ubah komentar sendiri
+  permission_edit_issue_comments: Ubah semua komentar
+  permission_delete_own_issue_comments: Hapus komentar sendiri
+  permission_delete_issue_comments: Hapus semua komentar
+  label_issue_comment_plural: Komentar
+  label_no_issue_comments: Belum ada komentar.
+  label_issue_comment_edited: diubah
+  label_issue_comment_reply: Balas
+  label_issue_comment_placeholder: Tulis komentar...
+  button_issue_comment_add: Tambah komentar
+  notice_issue_comment_added: Komentar berhasil ditambahkan.
+  activerecord:
+    attributes:
+      issue_comment:
+        content: Komentar

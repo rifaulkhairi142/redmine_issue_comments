@@ -1,0 +1,46 @@
+<% if User.current.allowed_to?(:view_issue_comments, issue.project) %>
+<% content_for :header_tags do %>
+  <%= stylesheet_link_tag 'issue_comments', plugin: 'redmine_issue_comments' %>
+<% end %>
+<% all_comments = issue.issue_comments.includes(:user).to_a %>
+<% replies = all_comments.select(&:reply?).group_by(&:parent_id) %>
+<hr />
+<div id="issue-comments" class="issue-comments">
+  <p><strong><%= l(:label_issue_comment_plural) %> (<%= all_comments.size %>)</strong></p>
+
+  <% if all_comments.empty? %>
+    <p class="nodata"><%= l(:label_no_issue_comments) %></p>
+  <% end %>
+
+  <% all_comments.reject(&:reply?).each do |comment| %>
+    <%= render 'issue_comments/comment', comment: comment %>
+
+    <% (replies[comment.id] || []).each do |reply| %>
+      <%= render 'issue_comments/comment', comment: reply %>
+    <% end %>
+
+    <% if User.current.allowed_to?(:add_issue_comments, issue.project) %>
+      <div class="issue-comment-reply-form" id="issue-comment-reply-<%= comment.id %>" style="display:none;">
+        <%= form_with model: IssueComment.new, url: issue_issue_comments_path(issue), local: true do |f| %>
+          <%= hidden_field_tag 'issue_comment[parent_id]', comment.id %>
+          <%= f.text_area :content, rows: 3, class: 'wiki-edit', id: "issue_comment_reply_content_#{comment.id}",
+                          placeholder: l(:label_issue_comment_placeholder) %>
+          <%= wikitoolbar_for "issue_comment_reply_content_#{comment.id}" %>
+          <p><%= submit_tag l(:button_issue_comment_add) %></p>
+        <% end %>
+      </div>
+    <% end %>
+  <% end %>
+
+  <% if User.current.allowed_to?(:add_issue_comments, issue.project) %>
+    <div class="issue-comment-new">
+      <%= form_with model: IssueComment.new, url: issue_issue_comments_path(issue), local: true, id: 'new-issue-comment' do |f| %>
+        <%= f.text_area :content, rows: 5, class: 'wiki-edit', id: 'issue_comment_content',
+                        placeholder: l(:label_issue_comment_placeholder) %>
+        <%= wikitoolbar_for 'issue_comment_content' %>
+        <p><%= submit_tag l(:button_issue_comment_add) %></p>
+      <% end %>
+    </div>
+  <% end %>
+</div>
+<% end %>

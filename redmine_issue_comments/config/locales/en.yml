@@ -1,0 +1,19 @@
+en:
+  project_module_issue_comments: Issue comments
+  permission_view_issue_comments: View issue comments
+  permission_add_issue_comments: Add issue comments
+  permission_edit_own_issue_comments: Edit own issue comments
+  permission_edit_issue_comments: Edit all issue comments
+  permission_delete_own_issue_comments: Delete own issue comments
+  permission_delete_issue_comments: Delete all issue comments
+  label_issue_comment_plural: Comments
+  label_no_issue_comments: No comments yet.
+  label_issue_comment_edited: edited
+  label_issue_comment_reply: Reply
+  label_issue_comment_placeholder: Write a comment...
+  button_issue_comment_add: Add comment
+  notice_issue_comment_added: Comment added.
+  activerecord:
+    attributes:
+      issue_comment:
+        content: Comment

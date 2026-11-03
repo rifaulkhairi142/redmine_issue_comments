@@ -1,0 +1,40 @@
+<div class="<%= comment.reply? ? 'issue-comment issue-comment-reply' : 'issue-comment' %>" id="issue-comment-<%= comment.id %>">
+  <div class="issue-comment-header">
+    <%= avatar(comment.user, size: '24') %>
+    <span class="issue-comment-author"><%= authoring comment.created_on, comment.user %></span>
+    <% if comment.edited? %>
+      <span class="issue-comment-edited">(<%= l(:label_issue_comment_edited) %>)</span>
+    <% end %>
+    <span class="issue-comment-actions">
+      <% if !comment.reply? && User.current.allowed_to?(:add_issue_comments, comment.project) %>
+        <%= link_to l(:label_issue_comment_reply), '#',
+                    onclick: "$('#issue-comment-reply-#{comment.id}').toggle(); return false;" %>
+      <% end %>
+      <% if comment.editable_by?(User.current) %>
+        <%= link_to sprite_icon('edit', l(:button_edit)), '#',
+                    class: 'icon icon-edit',
+                    onclick: "$('#issue-comment-body-#{comment.id}, #issue-comment-edit-#{comment.id}').toggle(); return false;" %>
+      <% end %>
+      <% if comment.deletable_by?(User.current) %>
+        <%= delete_link issue_comment_path(comment) %>
+      <% end %>
+    </span>
+  </div>
+
+  <div class="wiki issue-comment-body" id="issue-comment-body-<%= comment.id %>">
+    <%= textilizable comment, :content %>
+  </div>
+
+  <% if comment.editable_by?(User.current) %>
+    <div class="issue-comment-edit" id="issue-comment-edit-<%= comment.id %>" style="display:none;">
+      <%= form_with model: comment, url: issue_comment_path(comment), method: :patch, local: true do |f| %>
+        <%= f.text_area :content, rows: 5, class: 'wiki-edit', id: "issue_comment_content_#{comment.id}" %>
+        <p>
+          <%= submit_tag l(:button_save) %>
+          <%= link_to l(:button_cancel), '#',
+                      onclick: "$('#issue-comment-body-#{comment.id}, #issue-comment-edit-#{comment.id}').toggle(); return false;" %>
+        </p>
+      <% end %>
+    </div>
+  <% end %>
+</div>

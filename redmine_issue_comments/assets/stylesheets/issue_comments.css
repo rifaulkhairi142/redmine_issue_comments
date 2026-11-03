@@ -1,0 +1,51 @@
+.issue-comments .issue-comment {
+  border: 1px solid #e4e4e4;
+  border-radius: 3px;
+  margin: 0 0 10px;
+  padding: 6px 10px;
+  background: #fcfcfc;
+}
+
+.issue-comments .issue-comment-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #777;
+  font-size: 0.9em;
+}
+
+.issue-comments .issue-comment-header .avatar {
+  margin: 0;
+}
+
+.issue-comments .issue-comment-edited {
+  font-style: italic;
+}
+
+.issue-comments .issue-comment-actions {
+  margin-left: auto;
+}
+
+.issue-comments .issue-comment-body {
+  margin-top: 4px;
+}
+
+.issue-comments .issue-comment-edit textarea,
+.issue-comments .issue-comment-new textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.issue-comments .issue-comment-reply {
+  margin-left: 30px;
+  background: #f7f9fc;
+}
+
+.issue-comments .issue-comment-reply-form {
+  margin: 0 0 10px 30px;
+}
+
+.issue-comments .issue-comment-reply-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
