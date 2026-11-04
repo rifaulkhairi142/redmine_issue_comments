@@ -1,0 +1,4 @@
+<%= tag.meta name: 'redmine-done-ratio-step',
+             data: { step: RedmineDoneRatioStep::Config.step, mode: RedmineDoneRatioStep::Config.mode } %>
+<%= stylesheet_link_tag 'done_ratio_step', plugin: 'redmine_done_ratio_step' %>
+<%= javascript_include_tag 'done_ratio_step', plugin: 'redmine_done_ratio_step', defer: true %>

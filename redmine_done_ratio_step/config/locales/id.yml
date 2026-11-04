@@ -1,0 +1,6 @@
+id:
+  label_done_ratio_step: Kelipatan
+  text_done_ratio_step_info: "Kelipatan % Done, 1-100. Nilai 100 selalu bisa dipilih, misal kelipatan 3 menjadi 0, 3, ... 99, 100."
+  label_done_ratio_step_mode: Jenis input
+  label_done_ratio_step_mode_slider: Slider + angka
+  label_done_ratio_step_mode_number: Angka saja

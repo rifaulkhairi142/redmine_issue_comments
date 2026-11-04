@@ -1,0 +1,6 @@
+en:
+  label_done_ratio_step: Step
+  text_done_ratio_step_info: "Increment for % Done, 1-100. 100 is always allowed, e.g. step 3 gives 0, 3, ... 99, 100."
+  label_done_ratio_step_mode: Input type
+  label_done_ratio_step_mode_slider: Slider + number
+  label_done_ratio_step_mode_number: Number only

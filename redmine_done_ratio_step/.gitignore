@@ -1,0 +1,30 @@
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Ruby / bundler
+.bundle/
+vendor/bundle/
+Gemfile.lock
+*.gem
+
+# Test / coverage
+coverage/
+.rspec_status
+.rubocop-cache/
+
+# Logs / temp
+*.log
+tmp/
+log/
+
+# Local Claude Code settings
+.claude/settings.local.json

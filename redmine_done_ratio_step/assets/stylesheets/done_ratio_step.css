@@ -1,0 +1,20 @@
+.done-ratio-step {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  vertical-align: middle;
+}
+
+.done-ratio-step-range {
+  width: 180px;
+  margin: 0;
+}
+
+.done-ratio-step-number {
+  width: 3.5em;
+  text-align: right;
+}
+
+.done-ratio-step-blank .done-ratio-step-range {
+  opacity: 0.4;
+}
