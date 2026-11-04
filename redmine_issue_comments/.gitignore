@@ -10,6 +10,8 @@ desktop.ini
 *.swo
 *~
 
+.claude
+
 # Ruby / bundler
 .bundle/
 vendor/bundle/
